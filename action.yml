@@ -1,6 +1,10 @@
 name: Generate .env
 description: Generate a .env file from variables and secrets
 author: Kiruse
+inputs:
+  env:
+    description: Contents of the .env to write to file & source
+    required: true
 runs:
   using: composite
   steps:
