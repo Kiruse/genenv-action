@@ -6,7 +6,5 @@ inputs:
     description: Contents of the .env file
     required: true
 runs:
-  using: composite
-  steps:
-  - run: echo "${{ inputs.env }}" >> .env
-    shell: bash
+  using: node20
+  main: index.js
