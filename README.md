@@ -7,6 +7,9 @@ I discourage using this Action unless necessary. For our usecase, for example, w
 
 ## Example Usage
 ```yaml
+env:
+  API_URL: foobar
+
 jobs:
   build:
     name: Build Project
@@ -15,10 +18,14 @@ jobs:
     - name: Generate .env
       uses: kiruse/genenv-action@v0
       with:
+        clone: API_URL
         env: |
-          foo = bar
-          bar = foo
-          var = ${{ vars.MY_VAR }}
-          secret = ${{ secrets.MY_SECRET }}
+          FOO = bar
+          BAR = foo
+          SOME_VAR = ${{ vars.SOME_VAR }}
+          SOME_SECRET = ${{ secrets.SOME_SECRET }}
+        require: FOO, SOME_SECRET
 ```
 This will produce a virtual .env file which only exists for the remainder of this job.
+
+## Inputs

@@ -4,7 +4,8 @@ author: Kiruse
 inputs:
   env:
     description: Contents of the .env file
-    required: true
+  clone:
+    description: List of variables to clone from the environment
   require:
     description: List of required variables. These must not be empty (after trim). Items separated by commas & newlines.
 runs:
