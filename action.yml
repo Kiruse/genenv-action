@@ -1,0 +1,10 @@
+name: Generate .env
+description: Generate a .env file from variables and secrets
+author: Kiruse
+runs:
+  using: composite
+  steps:
+  - run: echo ${{ inputs.env }} >> .env
+    shell: bash
+  - run: source .env
+    shell: bash
