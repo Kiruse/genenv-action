@@ -25944,6 +25944,7 @@ try {
   const vars = lines.map(line => line.trim().split('=').map(s => s.trim()));
 
   const required = core.getInput('require').split(/[,\n]+/).map(s => s.trim());
+  console.log(required);
   for (const requiredVar of required) {
     if (!vars.find(([k]) => k === requiredVar)) {
       core.setFailed(`Required variable ${requiredVar} is missing`);
