@@ -25940,8 +25940,7 @@ const fs   = __nccwpck_require__(7147);
 
 try {
   const escape = (v) => v.replace(/\\/g, '\\\\').replace(/'/g, "\\'");
-  const raw = core.getMultilineInput('env', { required: true });
-  const lines = raw.trim().split('\n');
+  const lines = core.getMultilineInput('env', { required: true });
   const vars = lines.map(line => line.trim().split('=').map(s => s.trim()));
   fs.writeFileSync('.env', vars.map(([k, v]) => `${k}='${escape(v)}'`).join('\n'));
 } catch (err) {
