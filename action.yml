@@ -8,5 +8,5 @@ inputs:
 runs:
   using: composite
   steps:
-  - run: echo ${{ inputs.env }} >> .env
+  - run: echo "${{ inputs.env }}" >> .env
     shell: bash
